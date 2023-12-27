@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿using CodeVidyalaya.Clean.Domain.Common;
+using System.Linq.Expressions;
 
 namespace CodeVidyalaya.Clean.Application.Contracts.Persistence
 {
-    public interface IGenericRepository<T> where T:class
+    public interface IGenericRepository<T> where T:BaseEntity
     {
         Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> filter, string? includePrperties = null);
         Task<List<T>> GetAllAsync(string? includePrperties = null);

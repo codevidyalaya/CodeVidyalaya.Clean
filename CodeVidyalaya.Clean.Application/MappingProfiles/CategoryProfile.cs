@@ -12,9 +12,9 @@ namespace CodeVidyalaya.Clean.Application.MappingProfiles
         public CategoryProfile()
         {
             CreateMap<CategoryDto, Category>().ReverseMap();
-            CreateMap<Category, CategoryDetailsDto>().ReverseMap();
-            CreateMap<CreateCategoryCommand,Category>().ReverseMap();
-            CreateMap<UpdateCategoryCommand,Category>().ReverseMap();
+            CreateMap<Category, CategoryDetailsDto>();         
+            CreateMap<CreateCategoryCommand, Category>();
+            CreateMap<UpdateCategoryCommand,Category>();
         }
     }
 }

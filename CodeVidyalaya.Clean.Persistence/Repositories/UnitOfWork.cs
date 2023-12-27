@@ -1,4 +1,5 @@
 ﻿using CodeVidyalaya.Clean.Application.Contracts.Persistence;
+using CodeVidyalaya.Clean.Domain.Common;
 using CodeVidyalaya.Clean.Persistence.DatabaseContext;
 
 namespace CodeVidyalaya.Clean.Persistence.Repositories
@@ -39,6 +40,21 @@ namespace CodeVidyalaya.Clean.Persistence.Repositories
 
         public async Task Save()
         {
+            foreach(var entry in _db.ChangeTracker.Entries<BaseEntity>())
+            {
+                switch(entry.State)
+                {
+                    case Microsoft.EntityFrameworkCore.EntityState.Added:
+                        entry.Entity.CreatedDate = DateTime.UtcNow;
+                        entry.Entity.ModifiedDate =  DateTime.UtcNow;
+                        break;
+                    case Microsoft.EntityFrameworkCore.EntityState.Modified:                        
+                        entry.Entity.ModifiedDate = DateTime.UtcNow;
+                        break;
+
+                }
+            }
+
             await _db.SaveChangesAsync();
         }
     }

@@ -1,11 +1,12 @@
 ﻿using CodeVidyalaya.Clean.Application.Contracts.Persistence;
+using CodeVidyalaya.Clean.Domain.Common;
 using CodeVidyalaya.Clean.Persistence.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace CodeVidyalaya.Clean.Persistence.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly SampleApplicationDatabaseContext _db;
         internal DbSet<T> dbset;

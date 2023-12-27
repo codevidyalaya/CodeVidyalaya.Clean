@@ -5,7 +5,7 @@ using MediatR;
 
 namespace CodeVidyalaya.Clean.Application.Features.Category.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, int>
+    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -15,16 +15,18 @@ namespace CodeVidyalaya.Clean.Application.Features.Category.Commands.UpdateCateg
             this._mapper = mapper;
             this._unitOfWork = unitOfWork;
         }
-        public async Task<int> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
             var categoryToUpdate = await _unitOfWork.Category.GetFirstOrDefaultAsync(u => u.Id == request.Id);
             if (categoryToUpdate == null)
             {
                 throw new NotFoundException(nameof(Category), request.Id);
             }
+            categoryToUpdate.CategoryName = request.CategoryName;
+
             _unitOfWork.Category.Update(categoryToUpdate);
             await _unitOfWork.Save();
-            return categoryToUpdate.Id;
+            return Unit.Value;
         }
     }
 }
