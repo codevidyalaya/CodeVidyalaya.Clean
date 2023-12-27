@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{0C1240D8-31F5-47E3-85B6-904D025F0ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Domain", "..\..\Project2024\CodeVidyalayaClean\CodeVidyalaya.Clean\CodeVidyalaya.Clean.Domain\CodeVidyalaya.Clean.Domain.csproj", "{A41D63DD-627C-402E-8313-8E9D2008A359}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Domain", "..\..\Project2024\CodeVidyalaya.Clean\CodeVidyalaya.Clean.Domain\CodeVidyalaya.Clean.Domain.csproj", "{A41D63DD-627C-402E-8313-8E9D2008A359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Application", "..\..\Project2024\CodeVidyalayaClean\CodeVidyalaya.Clean\CodeVidyalaya.Clean.Application\CodeVidyalaya.Clean.Application.csproj", "{F86B2387-694A-4FD6-A327-73695EA4AD96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Application", "..\..\Project2024\CodeVidyalaya.Clean\CodeVidyalaya.Clean.Application\CodeVidyalaya.Clean.Application.csproj", "{F86B2387-694A-4FD6-A327-73695EA4AD96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Persistence", "..\..\Project2024\CodeVidyalayaClean\CodeVidyalaya.Clean\CodeVidyalaya.Clean.Persistence\CodeVidyalaya.Clean.Persistence.csproj", "{0B9BC534-E5C5-4275-A008-D8D36EDDE5CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Persistence", "..\..\Project2024\CodeVidyalaya.Clean\CodeVidyalaya.Clean.Persistence\CodeVidyalaya.Clean.Persistence.csproj", "{0B9BC534-E5C5-4275-A008-D8D36EDDE5CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

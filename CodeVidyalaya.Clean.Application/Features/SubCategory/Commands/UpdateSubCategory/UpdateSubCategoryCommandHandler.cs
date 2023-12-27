@@ -23,7 +23,7 @@ namespace CodeVidyalaya.Clean.Application.Features.SubCategory.Commands.UpdateSu
                 throw new NotFoundException(nameof(SubCategory), request.Id);
             }
 
-            await _unitOfWork.SubCategory.Update(subCategoryToUpdate);
+            _unitOfWork.SubCategory.Update(subCategoryToUpdate);
             await _unitOfWork.Save();
             return Unit.Value;
         }

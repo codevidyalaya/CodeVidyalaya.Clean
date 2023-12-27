@@ -16,9 +16,9 @@ namespace CodeVidyalaya.Clean.Application.Features.Category.Queries.GetCategoryD
             this._unitOfWork = unitOfWork;
         }
 
-        public Task<CategoryDetailsDto> Handle(GetCategoryDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<CategoryDetailsDto> Handle(GetCategoryDetailsQuery request, CancellationToken cancellationToken)
         {
-            var categoryDetails = _unitOfWork.Category.GetFirstOrDefaultAsync(u => u.Id == request.Id,"SubCategory");
+            var categoryDetails =await _unitOfWork.Category.GetFirstOrDefaultAsync(u => u.Id == request.Id,"SubCategory");
 
             if (categoryDetails == null)
             {
