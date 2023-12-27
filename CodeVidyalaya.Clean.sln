@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.Persist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Infrastructure", "CodeVidyalaya.Clean.Infrastructure\CodeVidyalaya.Clean.Infrastructure.csproj", "{2D6CA977-F616-49D9-A074-6F74A5673F5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Api", "CodeVidyalaya.Clean.Api\CodeVidyalaya.Clean.Api.csproj", "{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2D6CA977-F616-49D9-A074-6F74A5673F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D6CA977-F616-49D9-A074-6F74A5673F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D6CA977-F616-49D9-A074-6F74A5673F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{F86B2387-694A-4FD6-A327-73695EA4AD96} = {87344922-F8BD-4950-A186-78D824A0C876}
 		{0B9BC534-E5C5-4275-A008-D8D36EDDE5CB} = {486A1CBC-96E9-4982-9FA0-6A30A75011CF}
 		{2D6CA977-F616-49D9-A074-6F74A5673F5D} = {486A1CBC-96E9-4982-9FA0-6A30A75011CF}
+		{6B9E0247-2A84-4BD7-9E9B-5903C77AF131} = {3709E247-0B19-4570-823B-E662B902362B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91F95586-354A-425B-B65B-775E60BD1FC5}

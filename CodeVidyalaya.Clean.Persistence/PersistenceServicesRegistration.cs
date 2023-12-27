@@ -15,7 +15,7 @@ namespace CodeVidyalaya.Clean.Persistence
             {
                 option.UseSqlServer(configuration.GetConnectionString("SampleApplicationDatabaseContextConnectionString"));
             });
-
+            
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             return services;
         }
