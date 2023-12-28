@@ -1,6 +1,7 @@
 ﻿using CodeVidyalaya.Clean.WebApp.Contracts;
 using CodeVidyalaya.Clean.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CodeVidyalaya.Clean.WebApp.Controllers
 {
@@ -15,7 +16,7 @@ namespace CodeVidyalaya.Clean.WebApp.Controllers
         [HttpGet]
         public IActionResult CategoryList()
         {
-            var categoryList = _category.GetCategory();            
+            var categoryList = _category.GetCategory();
             return View(categoryList.Result);
         }
 
@@ -33,12 +34,43 @@ namespace CodeVidyalaya.Clean.WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateCategory(CreateCategoryRequest createCategoryRequest)
+        public async Task<IActionResult> CreateCategory(CreateCategoryRequest createCategoryRequest)
         {
-           // var categoryDetails = _category.GetCategoryDetails(id);
+            if (ModelState.IsValid)
+            {
+                var response = await _category.CreateCategory(createCategoryRequest);
 
-            return View(createCategoryRequest);
+                if (response.Success)
+                {
+                    return RedirectToAction("CategoryList");
+                }
+                else
+                {
+                    foreach (var kvp in response.ValidationErrors)
+                    {
+                        foreach (var error in kvp.Value)
+                        {
+                            ModelState.AddModelError(kvp.Key, error);
+                        }
+                    }
+                    return View(createCategoryRequest);
+                }
+            }
+            else
+            {
+                return View(createCategoryRequest);
+            }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            if(id > 0)
+            {
+              await _category.DeleteCategory(id);
+            }
+            return RedirectToAction("CategoryList");
+        }
     }
 }

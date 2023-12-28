@@ -5,7 +5,6 @@
 @{
 }
 
-
 <h1>Details</h1>
 
 <div>
@@ -25,10 +24,20 @@
             @Html.DisplayFor(model => model.CategoryName)
         </dd>
     </dl>
-
-
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="CategoryList">Back to List</a>
+    <div class="btn-group"  role="group">
+        <a asp-controller="Category" asp-action="CategoryList" class="d-none d-sm-inline-flex btn btn-sm btn-primary shadow-sm me-2">
+              Back to List
+        </a>
+
+        <a asp-controller="Category" asp-action="Edit" asp-route-id="@Model.Id" class="d-none d-sm-inline-flex btn btn-sm btn-warning shadow-sm me-2">
+             Edit
+        </a>
+
+        <form method="post" enctype="multipart/form-data" asp-route-id="@Model.Id" asp-action="DeleteCategory" asp-controller="Category">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger"> Delete</button>
+        </form>
+    </div>
 </div>
