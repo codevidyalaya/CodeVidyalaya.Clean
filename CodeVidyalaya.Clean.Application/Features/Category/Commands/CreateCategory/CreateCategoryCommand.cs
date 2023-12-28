@@ -4,6 +4,6 @@ namespace CodeVidyalaya.Clean.Application.Features.Category.Commands.CreateCateg
 {
     public class CreateCategoryCommand : IRequest<int>
     {
-        public string CategoryName { get; set; } = string.Empty;
+        public string CategoryName { get; set; } 
     }
 }

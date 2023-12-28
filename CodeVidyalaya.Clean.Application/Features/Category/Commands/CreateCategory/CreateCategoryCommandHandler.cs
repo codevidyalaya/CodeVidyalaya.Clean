@@ -19,10 +19,12 @@ namespace CodeVidyalaya.Clean.Application.Features.Category.Commands.CreateCateg
         {
             var validator = new CreateCategoryCommandValidator(_unitOfWork);
             var validatorResult = await validator.ValidateAsync(request);
-            if(!validatorResult.IsValid)
+            if (!validatorResult.IsValid)
             {
-               throw new BadRequestException("Invalid Category", validatorResult);
+                throw new BadRequestException("Invalid Category", validatorResult);
+
             }
+
 
             var categoryToCreate = _mapper.Map<Domain.Category>(request);
             await _unitOfWork.Category.Add(categoryToCreate);
