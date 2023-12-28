@@ -1,4 +1,17 @@
+using CodeVidyalaya.Clean.WebApp.Contracts;
+using CodeVidyalaya.Clean.WebApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<ICategoryServices, CategoryServices>();
+
+builder.Services.AddHttpClient("MyApi", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7128/api/");
+    client.DefaultRequestHeaders.Add("User-Agent", "MyApp");
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
