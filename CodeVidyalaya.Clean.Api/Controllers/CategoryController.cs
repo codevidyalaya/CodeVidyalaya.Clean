@@ -3,7 +3,6 @@ using CodeVidyalaya.Clean.Application.Features.Category.Commands.DeleteCategory;
 using CodeVidyalaya.Clean.Application.Features.Category.Commands.UpdateCategory;
 using CodeVidyalaya.Clean.Application.Features.Category.Queries.GetAllCategory;
 using CodeVidyalaya.Clean.Application.Features.Category.Queries.GetCategoryDetails;
-using CodeVidyalaya.Clean.Application.Features.SubCategory.Commands.DeleteSubCategory;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +12,7 @@ namespace CodeVidyalaya.Clean.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class CategoryController : ControllerBase
     {
         private readonly IMediator _mediator;

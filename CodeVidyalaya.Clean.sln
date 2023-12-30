@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Integra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.WebApp", "CodeVidyalaya.Clean.WebApp\CodeVidyalaya.Clean.WebApp.csproj", "{8709DAB9-05B6-44ED-B672-F81A8A36AFCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Identity", "CodeVidyalaya.Clean.Identity\CodeVidyalaya.Clean.Identity.csproj", "{70A5B0EC-9677-49B9-B260-D0DBDE80330D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{8709DAB9-05B6-44ED-B672-F81A8A36AFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8709DAB9-05B6-44ED-B672-F81A8A36AFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8709DAB9-05B6-44ED-B672-F81A8A36AFCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A5B0EC-9677-49B9-B260-D0DBDE80330D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A5B0EC-9677-49B9-B260-D0DBDE80330D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A5B0EC-9677-49B9-B260-D0DBDE80330D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A5B0EC-9677-49B9-B260-D0DBDE80330D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{528206C3-41BA-4916-B4CF-CF61B69A736E} = {7D39C736-48A0-4BFB-85FB-8FABA685D40E}
 		{FC00C599-87C8-4713-8281-9F2A6E674375} = {7D39C736-48A0-4BFB-85FB-8FABA685D40E}
 		{8709DAB9-05B6-44ED-B672-F81A8A36AFCA} = {0C1240D8-31F5-47E3-85B6-904D025F0ADE}
+		{70A5B0EC-9677-49B9-B260-D0DBDE80330D} = {486A1CBC-96E9-4982-9FA0-6A30A75011CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91F95586-354A-425B-B65B-775E60BD1FC5}
