@@ -35,9 +35,10 @@ namespace CodeVidyalaya.Clean.Identity
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(u =>
-            u.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(u =>        
+            u.TokenValidationParameters = new TokenValidationParameters
+            {                
                 ValidateIssuerSigningKey = true,
                 ValidateIssuer = true,
                 ValidateAudience= true,
@@ -45,7 +46,7 @@ namespace CodeVidyalaya.Clean.Identity
                 ClockSkew = TimeSpan.Zero,
                 ValidIssuer = configuration["JwtSettings:Issuer"],
                 ValidAudience = configuration["JwtSettings:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration["JwtSettings:Key"]))
             });
 
             return services;

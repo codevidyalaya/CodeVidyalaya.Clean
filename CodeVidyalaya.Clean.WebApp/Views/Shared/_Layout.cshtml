@@ -26,10 +26,33 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="CategoryList">Category</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if(User.IsInRole("Employee"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="CategoryList">Category</a>
+                                </li>
+                            }
+                            if(User.IsInRole("Admin"))
+                            {
+                               @* <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SubCategory" asp-action="SubCategoryList">SubCategory</a>
+                                </li>*@
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Settings</a>
+                                    <ul class="dropdown-menu">
+                                        <a class="dropdown-item text-dark" asp-controller="Category" asp-action="CategoryList">CategoryList</a>
+                                        <a class="dropdown-item text-dark" asp-controller="SubCategory" asp-action="SubCategoryList">SubCategoryList</a>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        }
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>

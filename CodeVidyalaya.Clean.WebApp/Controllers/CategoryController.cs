@@ -1,10 +1,12 @@
 ﻿using CodeVidyalaya.Clean.WebApp.Contracts;
 using CodeVidyalaya.Clean.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CodeVidyalaya.Clean.WebApp.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryServices _category;

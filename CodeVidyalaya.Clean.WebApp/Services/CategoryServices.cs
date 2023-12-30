@@ -1,15 +1,11 @@
 ﻿using CodeVidyalaya.Clean.WebApp.Contracts;
 using CodeVidyalaya.Clean.WebApp.Models;
 using CodeVidyalaya.Clean.WebApp.Services.Base;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
 using Newtonsoft.Json;
-using System.Security.Claims;
-using System.Text;
-
-using System;
+using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
 using System.Net.Http;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace CodeVidyalaya.Clean.WebApp.Services
 {
@@ -17,18 +13,25 @@ namespace CodeVidyalaya.Clean.WebApp.Services
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ILocalStorageService _localStorageService;
 
-        public CategoryServices(IHttpContextAccessor httpContextAccessor, IHttpClientFactory httpClientFactory)
+        public CategoryServices(IHttpContextAccessor httpContextAccessor, IHttpClientFactory httpClientFactory,ILocalStorageService localStorageService)
         {
             this._httpContextAccessor = httpContextAccessor;
             this._httpClientFactory = httpClientFactory;
+            this._localStorageService = localStorageService;
         }
-
 
         public async Task<List<CategoryVM>> GetCategory()
         {
-
+            var token = _localStorageService.GetStorageValue<string>("token");
             var client = _httpClientFactory.CreateClient("MyApi");
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+            
             var response = client.GetAsync("Category").Result;
 
             if (response.IsSuccessStatusCode)
@@ -95,12 +98,25 @@ namespace CodeVidyalaya.Clean.WebApp.Services
             }
         }
 
-        public  Task<SuccessResponse<string>> UpdateCategory(int id, UpdateCategoryRequest updateCategoryRequest)
+        public async Task<SuccessResponse<string>> UpdateCategory(int id, UpdateCategoryRequest updateCategoryRequest)
         {
-            throw new NotImplementedException();
+            string inputParameter = JsonConvert.SerializeObject(updateCategoryRequest);
+            StringContent content = new StringContent(inputParameter, Encoding.UTF8, "application/json");
+            var client = _httpClientFactory.CreateClient("MyApi");
+
+            var apiResponse = await client.PutAsJsonAsync("Category", content);
+
+            if (apiResponse.IsSuccessStatusCode)
+            {
+                var responseData = await apiResponse.Content.ReadAsStringAsync();
+                return new SuccessResponse<string> { Success = true, Data = responseData };
+            }
+            else
+            {
+                var jsonContent = await apiResponse.Content.ReadAsStringAsync();
+                var errorResponse = JsonConvert.DeserializeObject<FailureResponse>(jsonContent);
+                return new SuccessResponse<string> { Success = false, ValidationErrors = errorResponse.Errors };
+            }
         }
     }
-
-
-
 }
