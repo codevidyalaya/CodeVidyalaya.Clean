@@ -56,7 +56,7 @@ namespace CodeVidyalaya.Clean.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Put(UpdateCategoryCommand updateCategory)
-        {
+        {           
             await _mediator.Send(updateCategory);
             return NoContent();
         }

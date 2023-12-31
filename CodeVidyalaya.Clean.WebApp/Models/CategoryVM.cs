@@ -6,7 +6,6 @@
         public string CategoryName { get; set; }
     }
 
-
     public class CategoryDetailsVM
     {
         public int Id { get; set; }
@@ -19,7 +18,6 @@
     {
         public int Id { get; set; }
     }
-
 
     public class CreateCategoryRequest
     {

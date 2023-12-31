@@ -25,9 +25,14 @@
                     @item.CategoryName
                 </td>
                 <td style="float:inline-end">
-                    <a asp-controller="Category" asp-action="CategoryDetails" asp-route-id="@item.Id" class="d-none d-sm-inline-flex btn btn-sm btn-primary shadow-sm">
-                        Details
+
+                    <a asp-controller="Category" asp-action="EditCategory" asp-route-id="@item.Id" class="d-none d-sm-inline-flex btn btn-sm btn-warning shadow-sm">
+                        Edit
                     </a>
+             
+                <a asp-controller="Category" asp-action="CategoryDetails" asp-route-id="@item.Id" class="d-none d-sm-inline-flex btn btn-sm btn-primary shadow-sm">
+                    Details
+                </a>
                 </td>
             </tr>
         }

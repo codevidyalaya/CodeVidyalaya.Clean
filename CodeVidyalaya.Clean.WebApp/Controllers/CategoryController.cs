@@ -40,23 +40,30 @@ namespace CodeVidyalaya.Clean.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _category.CreateCategory(createCategoryRequest);
+                try
+                {
+                    var response = await _category.CreateCategory(createCategoryRequest);
 
-                if (response.Success)
-                {
-                    return RedirectToAction("CategoryList");
-                }
-                else
-                {
-                    foreach (var kvp in response.ValidationErrors)
+                    if (response.Success)
                     {
-                        foreach (var error in kvp.Value)
+                        return RedirectToAction("CategoryList");
+                    }
+                    else
+                    {
+                        foreach (var kvp in response.ValidationErrors)
                         {
-                            ModelState.AddModelError(kvp.Key, error);
+                            foreach (var error in kvp.Value)
+                            {
+                                ModelState.AddModelError(kvp.Key, error);
+                            }
                         }
                     }
-                    return View(createCategoryRequest);
                 }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+                return View(createCategoryRequest);
             }
             else
             {
@@ -68,11 +75,60 @@ namespace CodeVidyalaya.Clean.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            if(id > 0)
+            if (id > 0)
             {
-              await _category.DeleteCategory(id);
+                await _category.DeleteCategory(id);
             }
             return RedirectToAction("CategoryList");
+        }
+
+
+        public async Task<ActionResult> EditCategory(int id)
+        {
+            UpdateCategoryRequest updateCategoryRequest = new UpdateCategoryRequest();
+            var model = await _category.GetCategoryDetails(id);
+            updateCategoryRequest.Id = model.Id;
+            updateCategoryRequest.CategoryName = model.CategoryName;
+            return View(updateCategoryRequest);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditCategory(int id, UpdateCategoryRequest updateCategoryRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var response = await _category.UpdateCategory(id, updateCategoryRequest);
+                    if (response.Success)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    else
+                    {
+                        foreach (var kvp in response.ValidationErrors)
+                        {
+                            foreach (var error in kvp.Value)
+                            {
+                                ModelState.AddModelError(kvp.Key, error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+
+                return View(updateCategoryRequest);
+            }
+            else
+            {
+                return View(updateCategoryRequest);
+            }
         }
     }
 }

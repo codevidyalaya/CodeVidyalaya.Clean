@@ -21,17 +21,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.Persistence", "CodeVidyalaya.Clean.Persistence\CodeVidyalaya.Clean.Persistence.csproj", "{0B9BC534-E5C5-4275-A008-D8D36EDDE5CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Infrastructure", "CodeVidyalaya.Clean.Infrastructure\CodeVidyalaya.Clean.Infrastructure.csproj", "{2D6CA977-F616-49D9-A074-6F74A5673F5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.Infrastructure", "CodeVidyalaya.Clean.Infrastructure\CodeVidyalaya.Clean.Infrastructure.csproj", "{2D6CA977-F616-49D9-A074-6F74A5673F5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Api", "CodeVidyalaya.Clean.Api\CodeVidyalaya.Clean.Api.csproj", "{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.Api", "CodeVidyalaya.Clean.Api\CodeVidyalaya.Clean.Api.csproj", "{6B9E0247-2A84-4BD7-9E9B-5903C77AF131}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.UnitTest", "CodeVidyalaya.Clean.UnitTest\CodeVidyalaya.Clean.UnitTest.csproj", "{528206C3-41BA-4916-B4CF-CF61B69A736E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.UnitTest", "CodeVidyalaya.Clean.UnitTest\CodeVidyalaya.Clean.UnitTest.csproj", "{528206C3-41BA-4916-B4CF-CF61B69A736E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.IntegrationTests", "CodeVidyalaya.Clean.IntegrationTests\CodeVidyalaya.Clean.IntegrationTests.csproj", "{FC00C599-87C8-4713-8281-9F2A6E674375}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.IntegrationTests", "CodeVidyalaya.Clean.IntegrationTests\CodeVidyalaya.Clean.IntegrationTests.csproj", "{FC00C599-87C8-4713-8281-9F2A6E674375}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.WebApp", "CodeVidyalaya.Clean.WebApp\CodeVidyalaya.Clean.WebApp.csproj", "{8709DAB9-05B6-44ED-B672-F81A8A36AFCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.WebApp", "CodeVidyalaya.Clean.WebApp\CodeVidyalaya.Clean.WebApp.csproj", "{8709DAB9-05B6-44ED-B672-F81A8A36AFCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeVidyalaya.Clean.Identity", "CodeVidyalaya.Clean.Identity\CodeVidyalaya.Clean.Identity.csproj", "{70A5B0EC-9677-49B9-B260-D0DBDE80330D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeVidyalaya.Clean.Identity", "CodeVidyalaya.Clean.Identity\CodeVidyalaya.Clean.Identity.csproj", "{70A5B0EC-9677-49B9-B260-D0DBDE80330D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
