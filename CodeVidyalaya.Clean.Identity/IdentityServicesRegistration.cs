@@ -20,7 +20,9 @@ namespace CodeVidyalaya.Clean.Identity
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<SampleApplicationIdentityDatabaseContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("SampleApplicationDatabaseContextConnectionString"),
+            //  options.UseSqlServer(configuration.GetConnectionString("SampleApplicationDatabaseContextConnectionString"),
+            
+            options.UseMySql(configuration.GetConnectionString("SampleApplicationDatabaseContextConnectionString"),ServerVersion.AutoDetect(configuration.GetConnectionString("SampleApplicationDatabaseContextConnectionString")),
             b => b.MigrationsAssembly(typeof(SampleApplicationIdentityDatabaseContext).Assembly.FullName)));
 
          

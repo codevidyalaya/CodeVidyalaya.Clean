@@ -17,70 +17,70 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("CodeVidyalaya.Clean.Identity.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -89,8 +89,7 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
 
@@ -99,7 +98,7 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                         {
                             Id = "a2d890d8-01d1-494b-9f62-6336b937e6fc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "490a15a4-838d-47f5-9aa9-d9059ea4ac15",
+                            ConcurrencyStamp = "34eabdaa-d9e1-49aa-94c7-12a955c95f23",
                             Email = "admin@clean.com",
                             EmailConfirmed = true,
                             FirstName = "Satya",
@@ -107,9 +106,9 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@clean.com",
                             NormalizedUserName = "admin@clean.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAENfBkhPUV2qHcQBhlr+1kpO/j4WieCaSICIvfIUgSmnqeGc45PybMDYvuXa221vqBA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG3ZN3R9bYstyjJ45G/DFo2HkY1Aa7feSvLphmgsP6KzNjaqhwyxW/jLxX6oyV2gcw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eb0eb7ce-5fd5-4bec-97df-cd421fd08e31",
+                            SecurityStamp = "e56a15a3-f222-4a9b-bde1-ee99246a65bb",
                             TwoFactorEnabled = false,
                             UserName = "admin@clean.com"
                         },
@@ -117,7 +116,7 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                         {
                             Id = "44e68e2e-318d-4dbb-bc3a-2950e14ed72c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9ef69d14-d994-4502-ae8a-8082070bb332",
+                            ConcurrencyStamp = "399c09de-ec7c-4ed7-bae8-e83e6b80557a",
                             Email = "employee@clean.com",
                             EmailConfirmed = true,
                             FirstName = "Praksh",
@@ -125,9 +124,9 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "employee@clean.com",
                             NormalizedUserName = "employee@clean.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKWvHIEjmxFQdoAVttZIvm5TvLXV4guDVmkDy+elIyn4jHJdLvCWo9hnF4U+dnSC+A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP7NjLt+8NmDJCJ56XdQjLTollm1xYuQNhVZW+uwsj0rfAGoBH2lCeg7CH9KYSu0DA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bc6a3b74-59e6-41c7-8bcc-849bfea00264",
+                            SecurityStamp = "652c5ef6-67e4-438c-bfc4-326a0fb0916e",
                             TwoFactorEnabled = false,
                             UserName = "employee@clean.com"
                         });
@@ -136,26 +135,25 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
 
@@ -163,14 +161,12 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                         new
                         {
                             Id = "642def8e-1ecc-4665-b12b-b6fdacbc0937",
-                            ConcurrencyStamp = "0e091171-0178-4703-88fa-32352b37dec7",
                             Name = "Employee",
                             NormalizedName = "Employee"
                         },
                         new
                         {
                             Id = "5cda4a3e-7a57-4b0e-87fe-48ee9c1d3eaa",
-                            ConcurrencyStamp = "30c83af0-5410-4d0d-908a-3f0e19c9c6be",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         });
@@ -182,17 +178,17 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
@@ -207,17 +203,17 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
@@ -229,17 +225,17 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -251,10 +247,10 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -278,16 +274,16 @@ namespace CodeVidyalaya.Clean.Identity.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
